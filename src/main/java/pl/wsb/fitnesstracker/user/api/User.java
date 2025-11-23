@@ -22,16 +22,16 @@ public class User {
     @Nullable
     private Long id;
 
-    @Column(nullable = false)
+    @Column(name="first_name", nullable = false)
     private String firstName;
 
-    @Column(nullable = false)
+    @Column(name="last_name", nullable = false)
     private String lastName;
 
     @Column(name = "birthdate", nullable = false)
     private LocalDate birthdate;
 
-    @Column(nullable = false, unique = true)
+    @Column(name = "email", nullable = false, unique = true)
     private String email;
 
     public User(
