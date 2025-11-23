@@ -1,9 +1,18 @@
 package pl.wsb.fitnesstracker.userevent;
 
 import jakarta.persistence.*;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 import pl.wsb.fitnesstracker.event.Event;
 import pl.wsb.fitnesstracker.user.api.User;
 
+@Entity
+@Table(name = "user_event")
+@Getter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@ToString
 public class UserEvent {
     @Id
     private Long Id;
