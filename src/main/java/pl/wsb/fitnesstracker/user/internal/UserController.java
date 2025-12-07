@@ -31,5 +31,10 @@ class UserController {
                 .map(userMapper::toDto)
                 .toList();
     }
+
+    //@GetMapping("/simple")
+    //public List<UserSimpleDto> GetAllSimpleUsers(){
+       // return userService.findAllUsers().stream().map(userMapper::toSimpleDto).toList();
+   // }
 }
 
