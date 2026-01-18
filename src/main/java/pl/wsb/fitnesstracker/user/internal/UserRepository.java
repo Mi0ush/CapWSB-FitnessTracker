@@ -6,6 +6,10 @@ import pl.wsb.fitnesstracker.user.api.User;
 import java.util.Objects;
 import java.util.Optional;
 
+/**
+ * Repository interface for accessing and managing {@link User} entities in the database.
+ * Extends {@link JpaRepository} to provide standard CRUD operations.
+ */
 interface UserRepository extends JpaRepository<User, Long> {
 
     /**

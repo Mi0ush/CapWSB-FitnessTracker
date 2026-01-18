@@ -2,6 +2,9 @@ package pl.wsb.fitnesstracker.training.api;
 
 import java.util.Optional;
 
+/**
+ * Interface (API) for retrieving operations on {@link Training} entities.
+ */
 public interface TrainingProvider {
 
     /**

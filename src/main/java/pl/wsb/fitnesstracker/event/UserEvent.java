@@ -8,6 +8,10 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import pl.wsb.fitnesstracker.user.api.User;
 
+/**
+ * Represents the association between a user and an event in the fitness tracker system.
+ * This entity maps to the "user_event" table in the database and tracks the user's participation status.
+ */
 @Entity
 @Table(name = "user_event",
         uniqueConstraints = @UniqueConstraint(columnNames = {"user_id", "event_id"}))
@@ -15,18 +19,30 @@ import pl.wsb.fitnesstracker.user.api.User;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class UserEvent {
 
+    /**
+     * The unique identifier for the user-event association.
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    /**
+     * The user associated with the event.
+     */
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
+    /**
+     * The event associated with the user.
+     */
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "event_id", nullable = false)
     private Event event;
 
+    /**
+     * The status of the user's participation in the event (e.g., REGISTERED, ATTENDED).
+     */
     @Column(name = "status")
     @Setter
     private String status;

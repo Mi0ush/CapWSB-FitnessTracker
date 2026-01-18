@@ -1,16 +1,17 @@
 package pl.wsb.fitnesstracker.user.api;
 
 /**
- * Interface (API) for modifying operations on {@link User} entities through the API.
- * Implementing classes are responsible for executing changes within a database transaction, whether by continuing an existing transaction or creating a new one if required.
+ * Service interface for managing {@link User} entities.
+ * This API allows for creating and modifying user data.
+ * Implementations should handle transaction management.
  */
 public interface UserService {
 
     /**
-     * Creates a new user.
+     * Creates a new user in the system.
      *
-     * @param user The user to be created
-     * @return The created user
+     * @param user the {@link User} entity to be created.
+     * @return the created {@link User} entity.
      */
     User createUser(User user);
 

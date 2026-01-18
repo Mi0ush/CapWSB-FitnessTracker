@@ -3,6 +3,9 @@ package pl.wsb.fitnesstracker.user.api;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Interface (API) for retrieving operations on {@link User} entities.
+ */
 public interface UserProvider {
 
     /**
@@ -26,7 +29,7 @@ public interface UserProvider {
     /**
      * Retrieves all users.
      *
-     * @return An {@link Optional} containing the all users,
+     * @return A list containing all users.
      */
     List<User> findAllUsers();
 

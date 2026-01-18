@@ -34,6 +34,12 @@ class InitialDataLoader {
 
     private final JpaRepository<Training, Long> trainingRepository;
 
+    /**
+     * Constructs a new InitialDataLoader with the specified repositories.
+     *
+     * @param userRepository     the repository for managing user entities.
+     * @param trainingRepository the repository for managing training entities.
+     */
     InitialDataLoader(
             final JpaRepository<User, Long> userRepository,
             final JpaRepository<Training, Long> trainingRepository) {
@@ -41,6 +47,12 @@ class InitialDataLoader {
         this.trainingRepository = trainingRepository;
     }
 
+    /**
+     * Loads initial data into the database when the application context is refreshed.
+     * This method is triggered by the {@link ContextRefreshedEvent}.
+     *
+     * @param event the event indicating that the application context has been initialized or refreshed.
+     */
     @EventListener
     @Transactional
     @SuppressWarnings({"squid:S1854", "squid:S1481", "squid:S1192", "unused"})
@@ -51,6 +63,14 @@ class InitialDataLoader {
 
     }
 
+    /**
+     * Generates a new user and saves it to the repository.
+     *
+     * @param name     the first name of the user.
+     * @param lastName the last name of the user.
+     * @param age      the age of the user.
+     * @return the saved user entity.
+     */
     private User generateUser(String name, String lastName, int age) {
         User user = new User(name,
                 lastName,
@@ -59,6 +79,11 @@ class InitialDataLoader {
         return userRepository.save(user);
     }
 
+    /**
+     * Generates a list of sample users and saves them to the database.
+     *
+     * @return a list of generated users.
+     */
     private List<User> generateSampleUsers() {
         List<User> users = new ArrayList<>();
 
@@ -77,6 +102,12 @@ class InitialDataLoader {
         return users;
     }
 
+    /**
+     * Generates a list of sample training sessions for the provided users and saves them to the database.
+     *
+     * @param users the list of users for whom training sessions will be generated.
+     * @return a list of generated training sessions.
+     */
     private List<Training> generateTrainingData(List<User> users) {
         List<Training> trainingData = new ArrayList<>();
 
@@ -163,6 +194,11 @@ class InitialDataLoader {
         return trainingData;
     }
 
+    /**
+     * Verifies that the required dependencies have been autowired correctly.
+     *
+     * @throws IllegalStateException if any dependency is missing.
+     */
     private void verifyDependenciesAutowired() {
         if (isNull(userRepository)) {
             throw new IllegalStateException("Initial data loader was not autowired correctly " + this);

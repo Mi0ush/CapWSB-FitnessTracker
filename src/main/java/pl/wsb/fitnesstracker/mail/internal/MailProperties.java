@@ -7,7 +7,9 @@ import org.springframework.mail.javamail.JavaMailSender;
 import pl.wsb.fitnesstracker.mail.api.EmailSender;
 
 /**
- * Configuration of the {@link EmailSender} (additional to the Spring mail configuration for {@link JavaMailSender} bean autoconfiguration).
+ * Configuration properties for the mail module.
+ * This class binds properties with the prefix "mail" to configure the {@link EmailSender}.
+ * It complements the standard Spring Mail configuration for {@link JavaMailSender}.
  */
 @ConfigurationProperties(prefix = "mail")
 @Getter
@@ -15,7 +17,7 @@ import pl.wsb.fitnesstracker.mail.api.EmailSender;
 class MailProperties {
 
     /**
-     * Email address that the email should be sent from.
+     * The email address that will be used as the sender for outgoing emails.
      */
     private final String from;
 

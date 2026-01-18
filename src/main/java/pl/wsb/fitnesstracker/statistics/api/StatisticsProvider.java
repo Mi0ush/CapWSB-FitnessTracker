@@ -2,6 +2,9 @@ package pl.wsb.fitnesstracker.statistics.api;
 
 import java.util.Optional;
 
+/**
+ * Interface (API) for retrieving operations on {@link Statistics} entities.
+ */
 public interface StatisticsProvider {
 
     /**
